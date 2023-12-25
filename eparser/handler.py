@@ -28,9 +28,8 @@ class EPUBHandler:
             # Check if the directory already exists
             if not os.path.exists(epub_directory):
                 os.makedirs(epub_directory)
-                print("Successful creation of EPUB directory.")
             else:
-                print("EPUB directory already exists.")
+                pass
 
         except OSError as error:
             print("ERROR CHECK:", error)
