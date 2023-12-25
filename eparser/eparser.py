@@ -1,5 +1,6 @@
 from lxml import etree
 from handler import EPUBHandler
+import os
 
 
 class Parser:
@@ -27,17 +28,26 @@ class Parser:
         contents = self.contents
         ebook = dict()
         chapter_number = 1
+        epub_directory = self.path
 
         for filename in contents:
-            tree = etree.parse(filename)
+            file_path = os.path.join(epub_directory, "OEBPS", filename)
+            tree = etree.parse(file_path)
 
-            paragraphs = tree.xpath("//p")
+            paragraphs = tree.xpath(
+                "//xhtml:p", namespaces={"xhtml": "http://www.w3.org/1999/xhtml"}
+            )
             chapter_text = ""
 
             for paragraph in paragraphs:
-                chapter_text += str(paragraph.text) + "\n" + "\n"
+                chapter_text += (
+                    etree.tostring(paragraph, method="text", encoding="utf-8").decode(
+                        "utf-8"
+                    )
+                    + "\n"
+                )
 
-            ebook[chapter_number] = paragraph.text
+            ebook[chapter_number] = chapter_text
             chapter_number += 1
 
         return ebook
