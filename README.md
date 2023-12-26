@@ -1,23 +1,35 @@
 # eParser
 
-eParser is a library for handling and parsing EPUB files.
+eParser is a Python library designed for handling and parsing EPUB files. EPUB is a popular digital eBook format, and eParser simplifies the extraction and parsing of text content from these files.
 
+### Getting Started
+
+To begin using eParser, install it using pip: (Note: installation currently does not work)
+
+```bash
+pip install eparser
+```
 
 ## Usage
-eParser unzips, extracts, and parses the contents of an EPUB file, focusing on the text contained within.
+eParser simplifies the process of working with EPUB files in Python, offering a convenient way to extract and parse textual content. 
 
-The main usage of eParser is to create an eBook containing the chapters derived from an EPUB file without the need for third-party software.
+The primary goal is to streamline the creation of eBooks from EPUB files without the need for external tools.
 
-Below is an example of how eParser can be used:
+The following example demonstrates how to use eParser to process an EPUB file:
 
 ```py
 from eparser import get_ebook
 
-# extracts and parses the contents of the epub file given its path
-ebook = get_ebook('path-to-epub-file')
+# Specify the path to the EPUB file
+epub_file_path = 'path-to-epub-file'
 
-# ebook chapter contents can be accessed using the chapter number
-print(ebook[1])
+# Extract and parse the contents of the EPUB file
+ebook = get_ebook(epub_file_path)
+
+# Accessing eBook Chapters
+# Each chapter can be accessed using its corresponding chapter number
+chapter_number = 1
+print(f"Content of Chapter {chapter_number}:\n{ebook[chapter_number]}")
 ```
 
 
