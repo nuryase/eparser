@@ -4,9 +4,9 @@ eParser is a library for handling and parsing EPUB files.
 
 
 # Usage
-eParser unzips, extracts, and parses the contents of the EPUB file, focusing on the text contained within.
+eParser unzips, extracts, and parses the contents of an EPUB file, focusing on the text contained within.
 
-The main usage of eParser is to obtain the eBook contents contained within an EPUB file without the need for third-party software.
+The main usage of eParser is to create an eBook containing the chapters derived from an EPUB file without the need for third-party software.
 
 Below is an example of how eParser can be used:
 
