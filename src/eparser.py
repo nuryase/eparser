@@ -10,8 +10,14 @@ class Parser:
 
     def __init__(self, contents: list, path: str):
         """
-        contents - A list containing filenames ending with .xhtml/.html
-        path - Path leading to the extracted EPUB directory.
+        Parameters
+        ----------
+
+        contents: List[str]
+            A list containing filenames ending with .xhtml/.html
+
+        path: str
+            Path leading to the extracted EPUB directory.
         """
         self.contents = contents
         self.path = path
@@ -20,8 +26,10 @@ class Parser:
         """
         Parses .xhtml/.html in OEBPS folder and stores text in a dictionary.
 
-        Return:
-            ebook - A dictionary with key : value pairs in the form chapter_number : chapter_contents.
+        Returns
+        -------
+            ebook: dict
+                A dictionary with key : value pairs in the form chapter_number : chapter_contents.
 
             **Use chapter_contents = ebook[chapter_number]**
         """

@@ -11,8 +11,14 @@ class EPUBHandler:
 
     def __init__(self, path: str, outdir_name: str):
         """
-        path - Path to EPUB file.
-        outdir_name - Name for the directory containing the extracted EPUB contents.
+        Parameters
+        ----------
+
+        path: str
+            Path to EPUB file.
+
+        outdir_name: str
+            Name for the directory containing the extracted EPUB contents.
         """
         self.path = path
         self.outdir_name = outdir_name
@@ -57,8 +63,11 @@ class EPUBHandler:
         """
         Obtains chapter filenames from the OEBPS folder and stores them in a list.
 
-        Returns:
-            contents - A list containing filenames ending with .xhtml/.html
+        Returns
+        -------
+
+            contents: List[str]
+                A list containing filenames ending with .xhtml/.html
         """
         contents = []
         epub_directory = self.set_current_path()
