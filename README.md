@@ -3,7 +3,7 @@
 eParser is a library for handling and parsing EPUB files.
 
 
-# Usage
+## Usage
 eParser unzips, extracts, and parses the contents of an EPUB file, focusing on the text contained within.
 
 The main usage of eParser is to create an eBook containing the chapters derived from an EPUB file without the need for third-party software.
@@ -21,7 +21,7 @@ print(ebook[1])
 ```
 
 
-# Misc
+## Misc
 eParser will be used in the [**brew**](https://github.com/nuryase/brew) application: An eBook reader app.
 
 Refactor handler.py and eparser.py and test using multiple epubs.
