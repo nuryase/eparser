@@ -32,8 +32,7 @@ chapter_number = 1
 print(f"Content of Chapter {chapter_number}:\n{ebook[chapter_number]}")
 ```
 
-
 ## Misc
-eParser will be used in the [**brew**](https://github.com/nuryase/brew) application: An eBook reader app.
+eParser is an integral part of the [**brew**](https://github.com/nuryase/brew) application: An eBook reader app.
 
 Refactor handler.py and eparser.py and test using multiple epubs.
