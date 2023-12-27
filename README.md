@@ -40,5 +40,6 @@ eParser is an integral part of the [**brew**](https://github.com/nuryase/brew) a
 
 
 ## Notes
-Medium EPUB benchmarked to run full process in ~100ms.
-Test using small & large EPUBS. (Consider [**gutenberg.org**](https://www.gutenberg.org/))
+Benchmark criteria are established based on both the quantity of .xhtml/.html files and the size of each file.
+
+Refactor the code to resolve issues by integrating EPUBs from [**gutenberg.org**](https://www.gutenberg.org/) EPUBS.

@@ -2,38 +2,21 @@ import timeit
 from utils import get_ebook
 
 
-def benchmark_small_process(epub_path: str, ebook_name: str):
+def benchmark_process(epub_path: str, ebook_name: str):
     """
-    Benchmarks process for a small EPUB.
+    Benchmarks process for a different EPUB sizes.
+
+    Process time is determined by the number and size of .xhtml/html files.
+
+    e.g. The 16.9mb x-large.epub takes ~40ms whereas the 3.9mb large.epub takes ~100ms.
     """
 
     # Test with small EPUB (no metrics as of yet)
-    small_epub_process = get_ebook(epub_path, ebook_name)
-    return small_epub_process
-
-
-def benchmark_medium_process(epub_path: str, ebook_name: str):
-    """
-    Benchmarks process for a medium EPUB.
-    """
-
-    # Test with Large EPUB (550~ chapters)
-    large_epub_process = get_ebook(epub_path, ebook_name)
-    return large_epub_process
-
-
-def benchmark_large_process(epub_path: str, ebook_name: str):
-    """
-    Benchmarks process for a large EPUB.
-    """
-
-    # Test with Large EPUB (550~ chapters)
-    large_epub_process = get_ebook(epub_path, ebook_name)
-    return large_epub_process
+    epub_process = get_ebook(epub_path, ebook_name)
+    return epub_process
 
 
 if __name__ == "__main__":
     start_time = timeit.default_timer()
-    benchmark_large_process("tests/test-epubs/medium.epub", "medium")
-    # full_process = get_ebook("tests/test.epub", "test")
-    print("Medium EPUB Process: ", timeit.default_timer() - start_time)
+    benchmark_process("tests/test-epubs/large.epub", "large")
+    print("X-Large2 EPUB Process: ", timeit.default_timer() - start_time)
