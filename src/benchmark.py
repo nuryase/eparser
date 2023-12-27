@@ -1,16 +1,39 @@
 import timeit
-from auxiliary import create_ebook_from_path
+from utils import get_ebook
 
 
-def benchmark_full_process():
+def benchmark_small_process(epub_path: str, ebook_name: str):
     """
-    Benchmarks the entire unzipping, extraction, and parsing process.
+    Benchmarks process for a small EPUB.
     """
-    full_process = create_ebook_from_path("tests/test.epub", "test")
-    return full_process
+
+    # Test with small EPUB (no metrics as of yet)
+    small_epub_process = get_ebook(epub_path, ebook_name)
+    return small_epub_process
+
+
+def benchmark_medium_process(epub_path: str, ebook_name: str):
+    """
+    Benchmarks process for a medium EPUB.
+    """
+
+    # Test with Large EPUB (550~ chapters)
+    large_epub_process = get_ebook(epub_path, ebook_name)
+    return large_epub_process
+
+
+def benchmark_large_process(epub_path: str, ebook_name: str):
+    """
+    Benchmarks process for a large EPUB.
+    """
+
+    # Test with Large EPUB (550~ chapters)
+    large_epub_process = get_ebook(epub_path, ebook_name)
+    return large_epub_process
 
 
 if __name__ == "__main__":
     start_time = timeit.default_timer()
-    full_procces = benchmark_full_process()
-    print("Full Process: ", timeit.default_timer() - start_time)
+    benchmark_large_process("tests/test-epubs/medium.epub", "medium")
+    # full_process = get_ebook("tests/test.epub", "test")
+    print("Medium EPUB Process: ", timeit.default_timer() - start_time)

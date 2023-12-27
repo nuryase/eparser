@@ -23,8 +23,11 @@ from eparser import get_ebook
 # Specify the path to the EPUB file
 epub_file_path = 'path-to-epub-file'
 
+# Specify the name of the eBook
+ebook_name = 'Lord of the Mysteries'
+
 # Extract and parse the contents of the EPUB file
-ebook = get_ebook(epub_file_path)
+ebook = get_ebook(epub_file_path, ebook_name)
 
 # Accessing eBook Chapters
 # Each chapter can be accessed using its corresponding chapter number
@@ -35,4 +38,7 @@ print(f"Content of Chapter {chapter_number}:\n{ebook[chapter_number]}")
 ## Misc
 eParser is an integral part of the [**brew**](https://github.com/nuryase/brew) application: An eBook reader app.
 
-Refactor handler.py and eparser.py and test using multiple epubs.
+
+## Notes
+Medium EPUB benchmarked to run full process in ~100ms.
+Test using small & large EPUBS. (Consider [**gutenberg.org**](https://www.gutenberg.org/))
