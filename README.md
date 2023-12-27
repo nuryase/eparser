@@ -42,4 +42,8 @@ eParser is an integral part of the [**brew**](https://github.com/nuryase/brew) a
 ## Notes
 Benchmark criteria are established based on both the quantity of .xhtml/.html files and the size of each file.
 
-Refactor the code to resolve issues by integrating EPUBs from [**gutenberg.org**](https://www.gutenberg.org/) EPUBS.
+The library exclusively supports [**StandardEBooks**](https://standardebooks.org/ebooks) or OEBPS-formatted files. It does not provide compatibility with [**Gutenberg**](https://www.gutenberg.org/) EPUBS.
+
+* Refactor to account for all Standard-EPUB structurings. Update DocStrings.
+
+

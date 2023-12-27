@@ -2,7 +2,7 @@ from lxml import etree
 import os
 
 
-def parse_contents(epub_directory: str, filenames: list[str]):
+def parse_contents(directory_path: str, filenames: list[str]):
     """
     Parses .xhtml/.html in OEBPS folder and stores text in a dictionary.
 
@@ -17,13 +17,23 @@ def parse_contents(epub_directory: str, filenames: list[str]):
     chapter_number = 1
 
     for filename in filenames:
-        file_path = os.path.join(epub_directory, "OEBPS", filename)
+        file_path = os.path.join(directory_path, filename)
 
         try:
-            with open(file_path, "r", encoding="utf-8") as file:
-                chapter_text = file.read()
+            tree = etree.parse(file_path)
+            paragraphs = tree.xpath(
+                "//xhtml:p", namespaces={"xhtml": "http://www.w3.org/1999/xhtml"}
+            )
+            chapter_contents = "\n".join(
+                [
+                    etree.tostring(paragraph, method="text", encoding="utf-8").decode(
+                        "utf-8"
+                    )
+                    for paragraph in paragraphs
+                ]
+            )
 
-            ebook[chapter_number] = chapter_text
+            ebook[chapter_number] = chapter_contents
             chapter_number += 1
 
         except Exception as error:

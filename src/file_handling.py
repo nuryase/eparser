@@ -58,7 +58,7 @@ def default_path(ebook_name: str):
     return epub_directory
 
 
-def get_html_files(ebook_name: str, directory_path: str = None):
+def get_html_files(ebook_name: str, standard: bool = False, directory_path: str = None):
     """
     Obtains chapter filenames from the OEBPS folder and stores them in a list.
 
@@ -80,22 +80,27 @@ def get_html_files(ebook_name: str, directory_path: str = None):
     if directory_path is None:
         directory_path = default_path(ebook_name)
 
-    oebps_path = os.path.join(directory_path, "OEBPS")
+    if standard:
+        file_path = os.path.join(
+            directory_path, "epub", "text"
+        )  # Adjust the path accordingly
+    else:
+        file_path = os.path.join(directory_path, "OEBPS")
 
-    html_files = [
-        filename
-        for filename in sorted(os.listdir(oebps_path))
-        if filename.endswith("html") and filename.startswith("chap")
-    ]
+    # Obtain the list of all files in the directory
+    all_files = sorted(os.listdir(file_path))
 
-    return html_files
+    if standard:
+        html_files = [
+            filename
+            for filename in all_files
+            if filename.startswith(ebook_name.lower()) and filename.endswith("html")
+        ]
+    else:
+        html_files = [
+            filename
+            for filename in all_files
+            if filename.startswith("chap") and filename.endswith("html")
+        ]
 
-
-def process_epub(epub_file_path: str, ebook_name: str, out_directory: str = None):
-    """
-    Auxiliary function. Move to utils.py
-    """
-    extract_contents(epub_file_path, ebook_name, out_directory)
-    files = get_html_files(ebook_name, out_directory)
-
-    return files
+    return html_files, file_path
