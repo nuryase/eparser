@@ -46,15 +46,6 @@ Chapters have been omitted for brevity.
 │   │   │   ├── chapter-1.xhtml
 │   │   │   ├── colophon.xhtml
 │   │   │   ├── endnotes-1.xhtml
-│   │   │   ├── endnotes-10.xhtml
-│   │   │   ├── endnotes-2.xhtml
-│   │   │   ├── endnotes-3.xhtml
-│   │   │   ├── endnotes-4.xhtml
-│   │   │   ├── endnotes-5.xhtml
-│   │   │   ├── endnotes-6.xhtml
-│   │   │   ├── endnotes-7.xhtml
-│   │   │   ├── endnotes-8.xhtml
-│   │   │   ├── endnotes-9.xhtml
 │   │   │   ├── foreword.xhtml
 │   │   │   ├── halftitlepage.xhtml
 │   │   │   ├── imprint.xhtml
@@ -81,10 +72,6 @@ Chapters have been omitted for brevity.
 │   │   ├── onix.xml
 │   │   ├── text
 │   │   │   ├── act-1.xhtml
-│   │   │   ├── act-2.xhtml
-│   │   │   ├── act-3.xhtml
-│   │   │   ├── act-4.xhtml
-│   │   │   ├── act-5.xhtml
 │   │   │   ├── colophon.xhtml
 │   │   │   ├── dramatis-personae.xhtml
 │   │   │   ├── endnotes.xhtml
@@ -108,8 +95,6 @@ Chapters have been omitted for brevity.
 │   │   ├── images
 │   │   │   ├── cover.jpg
 │   │   │   ├── illustration-1.jpg
-│   │   │   ├── illustration-2.png
-│   │   │   ├── illustration-3.png
 │   │   │   ├── logo.png
 │   │   │   └── titlepage.png
 │   │   ├── onix.xml
