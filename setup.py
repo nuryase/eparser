@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="eParser",
-    version="0.1.0",
+    version="0.1.1",
     author="yasen",
     description="Library for EPUB handling and parsing",
     long_description=long_description,
