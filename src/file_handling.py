@@ -96,6 +96,17 @@ def get_html_files(ebook_name: str, standard: bool = False, directory_path: str 
             for filename in all_files
             if filename.startswith(ebook_name.lower()) and filename.endswith("html")
         ]
+        html_files += [
+            filename
+            for filename in all_files
+            if filename.startswith("chap") and filename.endswith("html")
+        ]
+        html_files += [
+            filename
+            for filename in all_files
+            if filename.startswith("act") and filename.endswith("html")
+        ]
+
     else:
         html_files = [
             filename

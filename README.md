@@ -44,10 +44,6 @@ Benchmark criteria are established based on both the quantity of .xhtml/.html fi
 
 The library exclusively supports [**StandardEBooks**](https://standardebooks.org/ebooks) or OEBPS-formatted files. It does not provide compatibility with [**Gutenberg**](https://www.gutenberg.org/) EPUBS.
 
-* Refactor to account for all Standard-EPUB structurings. Standard-EPUBS are structured (title.html)/(chapter-num.html)/(act-1.html)/
-
-Another issue arises with those labelled as 'acts', as the text is within tables rather than paragraph tags.
-
 * Update DocStrings.
 
 
