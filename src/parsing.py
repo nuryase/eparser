@@ -1,17 +1,25 @@
-from lxml import etree
 import os
+from lxml import etree
+from typing import List
 
 
-def parse_contents(directory_path: str, filenames: list[str]):
+def parse_contents(filenames: List[str], directory_path: str):
     """
-    Parses .xhtml/.html in OEBPS folder and stores text in a dictionary.
+    Parses .xhtml/.html files in the extracted folder and stores text in an eBook dictionary.
+
+    Parameters
+    ----------
+    filenames : List[str]
+        List of filenames corresponding to the .xhtml/.html files to be parsed.
+
+    directory_path : str
+        Path to the directory containing the .xhtml/.html files.
 
     Returns
     -------
-        ebook: dict
-            A dictionary with key : value pairs in the form chapter_number : chapter_contents.
-
-        **Use chapter_contents = ebook[chapter_number]**
+    dict
+        A dictionary with key-value pairs representing chapter numbers and their contents.
+        To access chapter contents, use `chapter_contents = ebook[chapter_number]`.
     """
     ebook = dict()
     chapter_number = 1

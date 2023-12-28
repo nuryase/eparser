@@ -4,47 +4,43 @@ import os
 
 def extract_contents(epub_file_path: str, ebook_name: str, out_directory: str = None):
     """
-    Unzips EPUB and extracts contents.
+    Unzips an EPUB file and extracts its contents.
 
     Parameters
     ----------
+    epub_file_path : str
+        Path leading to the EPUB file.
 
-        epub_file_path: str
-            Path leading to EPUB file.
+    ebook_name : str
+        Name of the eBook.
 
-        ebook_name: str
-            Name of the eBook.
-
-        out_directory: str
-            Directory to extract the contents into (default: None)
+    out_directory : str, optional
+        Directory to extract the contents into (default: None).
     """
     if out_directory is None:
         out_directory = default_path(ebook_name)
 
     try:
         patoolib.extract_archive(epub_file_path, outdir=out_directory)
-
     except FileNotFoundError:
-        print("ERROR: EPUB file could not be found" + "\n" + epub_file_path)
+        print(f"ERROR: EPUB file not found:\n{epub_file_path}")
     except Exception as error:
-        print("ERROR CHECK:", error)
+        print(f"ERROR CHECK: {error}")
 
 
 def default_path(ebook_name: str):
     """
-    Sets default path.
+    Sets the default extraction path.
 
     Parameters
     ----------
-
-        ebook_name: str
-            Name of the eBook.
+    ebook_name : str
+        Name of the eBook.
 
     Returns
     -------
-
-        epub_directory: str
-            Path to the extracted EPUBS.
+    str
+        Path to the extracted EPUBs.
     """
     current_path = os.getcwd()
     epub_directory = os.path.join(current_path, "extracted-epubs", ebook_name)
@@ -53,7 +49,7 @@ def default_path(ebook_name: str):
         try:
             os.makedirs(epub_directory)
         except OSError as error:
-            print("ERROR CHECK:", error)
+            print(f"ERROR CHECK: {error}")
 
     return epub_directory
 
@@ -64,26 +60,25 @@ def get_html_files(ebook_name: str, standard: bool = False, directory_path: str 
 
     Parameters
     ----------
+    ebook_name : str
+        Name of the eBook.
 
-        ebook_name: str
-            Name of the eBook.
+    standard : bool, optional
+        Indicates whether it is a StandardEBook format (True) or OEBPS format (False, default).
 
-        directory_path: str
-            Directory to extract the contents into (default: None)
+    directory_path : str, optional
+        Directory to extract the contents into (default: None).
 
     Returns
     -------
-
-        filenames: List[str]
-            A list containing chapter filenames.
+    list[str]
+        A list containing chapter filenames.
     """
     if directory_path is None:
         directory_path = default_path(ebook_name)
 
     if standard:
-        file_path = os.path.join(
-            directory_path, "epub", "text"
-        )  # Adjust the path accordingly
+        file_path = os.path.join(directory_path, "epub", "text")
     else:
         file_path = os.path.join(directory_path, "OEBPS")
 
