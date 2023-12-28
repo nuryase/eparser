@@ -18,20 +18,31 @@ The primary goal is to streamline the creation of eBooks from EPUB files without
 The following example demonstrates how to use eParser to process an EPUB file:
 
 ```py
-from eparser import get_ebook
+from eparser import get_ebook, process_epub
 
-# Specify the path to the EPUB file
-epub_file_path = 'path-to-epub-file'
-
-# Specify the name of the eBook
-ebook_name = 'Lord of the Mysteries'
-
-# Extract and parse the contents of the EPUB file
+# Example 1: Using get_ebook to directly obtain the eBook dictionary
+epub_file_path = 'path-to-epub-file.epub'
+ebook_name = 'MyEBook'
 ebook = get_ebook(epub_file_path, ebook_name)
 
 # Accessing eBook Chapters
-# Each chapter can be accessed using its corresponding chapter number
 chapter_number = 1
+print(f"Content of Chapter {chapter_number}:\n{ebook[chapter_number]}")
+
+# Example 2: Using process_epub to get filenames and file_path, then parsing contents separately
+epub_file_path = 'another-path-to-epub-file.epub'
+ebook_name = 'AnotherEBook'
+out_directory = '/custom/output/directory'
+standard_format = True
+
+# Get filenames and file_path using process_epub
+filenames, file_path = process_epub(epub_file_path, ebook_name, standard_format, out_directory)
+
+# Parse contents using the obtained filenames and file_path
+ebook = parse_contents(filenames, file_path)
+
+# Accessing eBook Chapters
+chapter_number = 3
 print(f"Content of Chapter {chapter_number}:\n{ebook[chapter_number]}")
 ```
 
