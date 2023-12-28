@@ -1,5 +1,6 @@
 import patoolib
 import os
+from natsort import os_sorted
 
 
 def extract_contents(epub_file_path: str, ebook_name: str, out_directory: str = None):
@@ -83,7 +84,7 @@ def get_html_files(ebook_name: str, standard: bool = False, directory_path: str 
         file_path = os.path.join(directory_path, "OEBPS")
 
     # Obtain the list of all files in the directory
-    all_files = sorted(os.listdir(file_path))
+    all_files = os_sorted(os.listdir(file_path))
 
     if standard:
         html_files = [
