@@ -35,6 +35,8 @@ ebook_name = 'AnotherEBook'
 out_directory = '/custom/output/directory'
 standard_format = True
 
+## Note that standard_format and out_directory are optional
+
 # Get filenames and file_path using process_epub
 filenames, file_path = process_epub(epub_file_path, ebook_name, standard_format, out_directory)
 
