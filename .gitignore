@@ -1,4 +1,5 @@
-venv/
+.venv/
 src/__pycache__/
 tests/test.epub
 /tests/test-epubs
+src/old/
