@@ -1,7 +1,7 @@
+import logging
 import os
 from lxml import etree
 from typing import List
-import logging
 
 
 def parse_contents(filenames: List[str], directory_path: str):

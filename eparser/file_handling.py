@@ -1,7 +1,7 @@
-import patoolib
-import os
-from natsort import os_sorted
 import logging
+import os
+import patoolib
+from natsort import os_sorted
 
 
 def extract_contents(epub_file_path: str, ebook_name: str, out_directory: str = None):
