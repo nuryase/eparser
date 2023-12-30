@@ -47,6 +47,5 @@ def parse_contents(filenames: List[str], directory_path: str):
 
         except Exception as error:
             logging.error(error)
-            print("ERROR CHECK:", error)
 
     return ebook
