@@ -1,6 +1,7 @@
 import os
 from lxml import etree
 from typing import List
+import logging
 
 
 def parse_contents(filenames: List[str], directory_path: str):
@@ -45,6 +46,7 @@ def parse_contents(filenames: List[str], directory_path: str):
             chapter_number += 1
 
         except Exception as error:
+            logging.error(error)
             print("ERROR CHECK:", error)
 
     return ebook

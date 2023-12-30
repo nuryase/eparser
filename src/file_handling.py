@@ -1,6 +1,7 @@
 import patoolib
 import os
 from natsort import os_sorted
+import logging
 
 
 def extract_contents(epub_file_path: str, ebook_name: str, out_directory: str = None):
@@ -24,9 +25,9 @@ def extract_contents(epub_file_path: str, ebook_name: str, out_directory: str = 
     try:
         patoolib.extract_archive(epub_file_path, outdir=out_directory)
     except FileNotFoundError:
-        print(f"ERROR: EPUB file not found:\n{epub_file_path}")
+        logging.error(f"ERROR: EPUB file not found:\n{epub_file_path}")
     except Exception as error:
-        print(f"ERROR CHECK: {error}")
+        logging.error(error)
 
 
 def default_path(ebook_name: str):
@@ -50,7 +51,7 @@ def default_path(ebook_name: str):
         try:
             os.makedirs(epub_directory)
         except OSError as error:
-            print(f"ERROR CHECK: {error}")
+            logging.error(error)
 
     return epub_directory
 
