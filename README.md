@@ -57,8 +57,6 @@ Benchmark criteria are established based on both the quantity of .xhtml/.html fi
 
 The library exclusively supports [**StandardEBooks**](https://standardebooks.org/ebooks) or OEBPS-formatted files. It does not provide compatibility with [**Gutenberg**](https://www.gutenberg.org/) EPUBS.
 
-* Update DocStrings.
-
 ## EPUB Validity
 
 Refer to ```validity.md``` to view examples that illustrate the acceptable formats for EPUBs extracted in eParser. Only EPUBs formatted similarly to these examples are considered valid. It is important to note that all examples, with the exception of ```Viewpoint```, adhere to the StandardEBooks format. ```Viewpoint``` utilizes the [**OEBPS**](https://en.wikipedia.org/wiki/EPUB#Open_Container_Format_2.0.1) formatting.
