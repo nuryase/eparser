@@ -3,7 +3,10 @@ from utils import get_ebook
 
 
 def benchmark_process(
-    epub_path: str, ebook_name: str, standard: bool = False, out_directory: str = None
+    epub_path: str,
+    ebook_name: str,
+    standard: bool = False,
+    out_directory: str | None = None,
 ):
     """
     Benchmarks process for a different EPUB sizes.
@@ -20,30 +23,25 @@ def benchmark_process(
 
 if __name__ == "__main__":
     start_time = timeit.default_timer()
-    print("\n")
     files = benchmark_process("tests/test-epubs/small-standard.epub", "Poetry", True)
     print("\nSmall Standard EPUB Process: ", timeit.default_timer() - start_time)
 
     start_time = timeit.default_timer()
-    print("\n")
     files = benchmark_process(
         "tests/test-epubs/small-act-standard.epub", "The-Jew-Of-Malta", True
     )
     print("\nSmall (Act) Standard EPUB Process: ", timeit.default_timer() - start_time)
 
     start_time = timeit.default_timer()
-    print("\n")
     files = benchmark_process(
         "tests/test-epubs/medium-standard.epub", "The-Mystery-of-the-Yellow-Room", True
     )
     print("\nMedium Standard EPUB Process: ", timeit.default_timer() - start_time)
 
     start_time = timeit.default_timer()
-    print("\n")
     files = benchmark_process("tests/test-epubs/large-standard.epub", "The-Diary", True)
     print("\nLarge Standard EPUB Process: ", timeit.default_timer() - start_time)
 
     start_time = timeit.default_timer()
-    print("\n")
     files = benchmark_process("tests/test-epubs/large.epub", "Viewpoint")
     print("\nLarge Non-Standard EPUB Process: ", timeit.default_timer() - start_time)

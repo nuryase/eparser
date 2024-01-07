@@ -4,7 +4,9 @@ import patoolib
 from natsort import os_sorted
 
 
-def extract_contents(epub_file_path: str, ebook_name: str, out_directory: str = None):
+def extract_contents(
+    epub_file_path: str, ebook_name: str, out_directory: str | None = None
+):
     """
     Unzips an EPUB file and extracts its contents.
 
@@ -23,7 +25,8 @@ def extract_contents(epub_file_path: str, ebook_name: str, out_directory: str = 
         out_directory = default_path(ebook_name)
 
     try:
-        patoolib.extract_archive(epub_file_path, outdir=out_directory)
+        # Verbosity set to -1 ignores patoolib prints
+        patoolib.extract_archive(epub_file_path, outdir=out_directory, verbosity=-1)
     except FileNotFoundError:
         logging.error(f"ERROR: EPUB file not found:\n{epub_file_path}")
     except Exception as error:
@@ -56,7 +59,9 @@ def default_path(ebook_name: str):
     return epub_directory
 
 
-def get_html_files(ebook_name: str, standard: bool = False, directory_path: str = None):
+def get_html_files(
+    ebook_name: str, standard: bool = False, directory_path: str | None = None
+):
     """
     Obtains chapter filenames from the OEBPS folder and stores them in a list.
 

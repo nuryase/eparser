@@ -7,7 +7,7 @@ def get_ebook(
     epub_file_path: str,
     ebook_name: str,
     standard: bool = False,
-    out_directory: str = None,
+    out_directory: str | None = None,
 ):
     """
     Creates an eBook dictionary from EPUB.
@@ -42,7 +42,7 @@ def process_epub(
     epub_file_path: str,
     ebook_name: str,
     standard: bool = False,
-    out_directory: str = None,
+    out_directory: str | None = None,
 ):
     """
     Handles the extraction process for EPUB.
